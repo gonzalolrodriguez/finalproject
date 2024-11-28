@@ -1,0 +1,396 @@
+<<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>
+            Food Menu
+        </title>
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(to top, #333, #000);
+            }
+
+            .menu-item:hover .tooltip {
+                display: block;
+            }
+
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.8);
+                color: rgb(255, 251, 251);
+                padding: 5px;
+                border-radius: 5px;
+                z-index: 10;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 50;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .modal-content {
+                margin: 15% auto;
+                padding: 20px;
+                width: 80%;
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 10px;
+                }
+
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                .menu-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .tooltip {
+                    font-size: 0.8rem;
+                }
+            }
+
+            @media (min-width: 481px) and (max-width: 768px) {
+                h1 {
+                    font-size: 3rem;
+                }
+
+                .menu-item {
+                    flex-direction: row;
+                }
+            }
+
+            @media (min-width: 769px) and (max-width: 1024px) {
+                h1 {
+                    font-size: 3.5rem;
+                }
+
+                .tooltip {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (min-width: 1025px) and (max-width: 1200px) {
+                h1 {
+                    font-size: 4rem;
+                }
+
+                .menu-item {
+                    padding: 10px;
+                }
+            }
+
+            @media (min-width: 1201px) {
+                h1 {
+                    font-size: 5rem;
+                }
+
+                .menu-item {
+                    padding: 15px;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="text-white">
+        <div class="max-w-4xl mx-auto p-6">
+            <div class="text-center mb-8">
+                <h1 class="text-5xl font-bold">
+                    FOOD MENU
+                </h1>
+                <p class="text-xl">
+                    Pauceck and Lage Restaurant
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-orange-500 text-black font-bold py-2 px-4 inline-block mb-4">
+                        MAIN COURSE
+                    </div>
+                    <ul>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Cheeseburger
+                            </span>
+                            <span>
+                                $34
+                            </span>
+                            <div class="tooltip">
+                                Hamburguesa deliciosa con ingredientes frescos.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Cheese sandwich
+                            </span>
+                            <span>
+                                $22
+                            </span>
+                            <div class="tooltip">
+                                Sandwich de queso delicioso, con muchas variedades de queso.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Chicken burgers
+                            </span>
+                            <span>
+                                $23
+                            </span>
+                            <div class="tooltip">
+                                Hamburguesas de pollo jugosas con salsa especial.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Spicy chicken
+                            </span>
+                            <span>
+                                $33
+                            </span>
+                            <div class="tooltip">
+                                Pollo condimentado con un gran sabor.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Hot dog
+                            </span>
+                            <span>
+                                $24
+                            </span>
+                            <div class="tooltip">
+                                Panchos clásicos al que puedes agregarle de todo.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img alt="A plate of roasted chicken with vegetables"
+                        class="rounded-full border-8 border-orange-500 cursor-pointer transition duration-300 ease-in-out transform hover:scale-110"
+                        height="200" id="main-course-img"
+                        src="https://storage.googleapis.com/a1aa/image/aIIaIM3Uj944KF3nSV6u311fBAz0odD4J1JrWiLtvlBNsu6JA.jpg"
+                        width="300" />
+                </div>
+                <div class="flex justify-center items-center order-last md:order-none">
+                    <img alt="A plate of salad with potatoes and grilled chicken"
+                        class="rounded-full border-8 border-orange-500 cursor-pointer transition duration-300 ease-in-out transform hover:scale-110"
+                        height="200" id="appetizers-img"
+                        src="https://storage.googleapis.com/a1aa/image/ce8nATpbHHQsPKD2bU3fKeIUhjCpQ3EolxMuXJQcBjUvw6qnA.jpg"
+                        width="300" />
+                </div>
+                <div>
+                    <div class="bg-orange-500 text-black font-bold py-2 px-4 inline-block mb-4">
+                        APPETIZERS
+                    </div>
+                    <ul>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Fruit Salad
+                            </span>
+                            <span>
+                                $13
+                            </span>
+                            <div class="tooltip">
+                                Ensalada de frutas fresca, con frutas de estación.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Cocktails
+                            </span>
+                            <span>
+                                $12
+                            </span>
+                            <div class="tooltip">
+                                Cocktails refrescantes de gran variedad de sabores.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Nuggets
+                            </span>
+                            <span>
+                                $14
+                            </span>
+                            <div class="tooltip">
+                                Nuggets de pollo crispy con salsa.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Sandwich
+                            </span>
+                            <span>
+                                $13
+                            </span>
+                            <div class="tooltip">
+                                Delicioso sandwich con ingredientes frescos.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                French Fries
+                            </span>
+                            <span>
+                                $15
+                            </span>
+                            <div class="tooltip">
+                                Papas fritas crujientes, agrégale los aderezos que quieras.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <br />
+                    <br />
+                    <div class="bg-orange-500 text-black font-bold py-2 px-4 inline-block mb-4">
+                        BEVERAGES
+                    </div>
+                    <ul>
+                        <li
+                        class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                        <span>
+                            Milk Shake
+                        </span>
+                        <span>
+                            $3
+                        </span>
+                        <div class="tooltip">
+                            Batidos de leche de diversos sabores.
+                            </div>
+                        </li>
+                        <li
+                        class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                        <span>
+                            Iced Tea
+                        </span>
+                        <span>
+                            $2
+                        </span>
+                        <div class="tooltip">
+                            Té helado refrescante con limón.
+                        </div>
+                    </li>
+                    <li
+                    class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Orange Juice
+                            </span>
+                            <span>
+                                $4
+                            </span>
+                            <div class="tooltip">
+                                Jugo de naranja recién exprimido.
+                            </div>
+                        </li>
+                        <li
+                            class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                            <span>
+                                Lemon Tea
+                            </span>
+                            <span>
+                                $3
+                            </span>
+                            <div class="tooltip">
+                                Té de limón caliente con miel.
+                            </div>
+                        </li>
+                        <li
+                        class="flex justify-between py-1 menu-item relative transition duration-300 ease-in-out transform hover:scale-105">
+                        <span>
+                            Coffee
+                        </span>
+                        <span>
+                            $5
+                        </span>
+                        <div class="tooltip">
+                            Café hecho al instante.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex justify-center items-center">
+                <img alt="Three glasses of different beverages with garnishes"
+                    class="rounded-full border-8 border-orange-500 cursor-pointer transition duration-300 ease-in-out transform hover:scale-110"
+                    height="200" id="beverages-img"
+                    src="https://storage.googleapis.com/a1aa/image/eTOxjgdWUfoJh0jX5YXeJPhD9P6gPnm8CmhahQIljo8xw6qnA.jpg"
+                    width="300" />
+            </div>
+            </div>
+            <div class="flex justify-center mt-8 space-x-4">
+                <div
+                    class="flex items-center space-x-2 bg-orange-500 text-black py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                    <i class="fas fa-phone-alt">
+                    </i>
+                    <span>
+                        3704-XXX-XXX
+                    </span>
+                </div>
+                <div
+                    class="flex items-center space-x-2 bg-orange-500 text-black py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    <span>
+                        Belgrano 300, Formosa, AR.
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="image-modal">
+            <div class="modal-content">
+                <span class="close text-white text-2xl cursor-pointer">
+                    ×
+                </span>
+                <img alt="Enlarged view" class="w-full" id="modal-img" src="" />
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('click', function () {
+                    document.getElementById('modal-img').src = this.src;
+                    document.getElementById('image-modal').style.display = 'block';
+                });
+            });
+
+            document.querySelector('.close').addEventListener('click', function () {
+                document.getElementById('image-modal').style.display = 'none';
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target == document.getElementById('image-modal')) {
+                    document.getElementById('image-modal').style.display = 'none';
+                }
+            });
+        </script>
+    </body>
+
+    </html>
